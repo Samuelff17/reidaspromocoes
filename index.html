@@ -3,47 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Rei das Promoções</title>
-  <meta name="description" content="Escolha seu grupo e receba ofertas selecionadas todos os dias direto no WhatsApp." />
+  <meta name="description" content="Escolha seu grupo do Rei das Promoções e receba ofertas selecionadas todos os dias no WhatsApp." />
 
   <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;
+      n=f.fbq=function(){
+        n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+      };
+      if(!f._fbq)f._fbq=n;
+      n.push=n;
+      n.loaded=!0;
+      n.version='2.0';
+      n.queue=[];
+      t=b.createElement(e);
+      t.async=!0;
+      t.src=v;
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s);
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '1364025912453653');
     fbq('track', 'PageView');
   </script>
+
   <noscript>
     <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1364025912453653&ev=PageView&noscript=1"/>
+      src="https://www.facebook.com/tr?id=1364025912453653&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --gold: #ffd76a;
+      --gold-strong: #f6b800;
+      --gold-dark: #8a5d00;
+      --black: #050505;
+      --card: rgba(10, 10, 10, 0.84);
+      --white: #ffffff;
+      --muted: #d5d5d5;
+      --blue: #00c8ff;
+      --blue-dark: #005eff;
+      --perfume: #c77dff;
+      --perfume-dark: #5a189a;
     }
 
-    :root {
-      --bg: #050505;
-      --card: rgba(14, 14, 14, 0.95);
-      --card-2: rgba(20, 20, 20, 0.92);
-      --gold-1: #ffd86b;
-      --gold-2: #f2b321;
-      --gold-3: #8a5a00;
-      --white: #ffffff;
-      --muted: #d7d7d7;
-      --line: rgba(255, 215, 100, 0.18);
-      --shadow-gold: 0 0 18px rgba(255, 191, 0, 0.22);
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
@@ -51,378 +63,533 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--white);
       background:
-        radial-gradient(circle at top, rgba(255, 193, 7, 0.10), transparent 30%),
-        linear-gradient(180deg, #070707 0%, #020202 100%);
-      padding: 18px;
+        radial-gradient(circle at 20% 0%, rgba(255, 215, 106, 0.20), transparent 28%),
+        radial-gradient(circle at 85% 8%, rgba(0, 200, 255, 0.12), transparent 25%),
+        radial-gradient(circle at 50% 100%, rgba(199, 125, 255, 0.12), transparent 30%),
+        linear-gradient(180deg, #0e0e0e 0%, #050505 55%, #000000 100%);
+      overflow-x: hidden;
+      padding: 22px;
     }
 
-    .wrap {
-      width: 100%;
-      max-width: 980px;
-      margin: 0 auto;
-    }
-
-    .main-card {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(180deg, rgba(15,15,15,0.96), rgba(6,6,6,0.98));
-      border: 1px solid rgba(255, 204, 87, 0.28);
-      border-radius: 28px;
-      padding: 26px 18px 22px;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.03), 0 16px 40px rgba(0,0,0,0.55), var(--shadow-gold);
-    }
-
-    .main-card::before {
+    body::before {
       content: "";
-      position: absolute;
+      position: fixed;
       inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 215, 106, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 215, 106, 0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.8;
       pointer-events: none;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(255, 203, 69, 0.10), transparent 20%),
-        radial-gradient(circle at 90% 5%, rgba(255, 203, 69, 0.08), transparent 18%);
+      mask-image: linear-gradient(to bottom, black 0%, transparent 85%);
     }
 
-    .top-brand {
+    .glow {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(65px);
+      opacity: 0.45;
+      pointer-events: none;
+      animation: floatGlow 8s ease-in-out infinite alternate;
+    }
+
+    .glow.one {
+      width: 260px;
+      height: 260px;
+      background: rgba(255, 215, 106, 0.28);
+      top: -90px;
+      left: -70px;
+    }
+
+    .glow.two {
+      width: 240px;
+      height: 240px;
+      background: rgba(0, 200, 255, 0.18);
+      right: -70px;
+      top: 160px;
+      animation-delay: 1s;
+    }
+
+    .glow.three {
+      width: 240px;
+      height: 240px;
+      background: rgba(199, 125, 255, 0.16);
+      left: 35%;
+      bottom: -100px;
+      animation-delay: 2s;
+    }
+
+    @keyframes floatGlow {
+      from {
+        transform: translateY(0) scale(1);
+      }
+      to {
+        transform: translateY(25px) scale(1.08);
+      }
+    }
+
+    .page {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      min-height: calc(100vh - 44px);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      padding: 26px 18px 22px;
+      background:
+        linear-gradient(180deg, rgba(20,20,20,0.94), rgba(5,5,5,0.96));
+      border: 1.5px solid rgba(255, 215, 106, 0.55);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.05),
+        0 25px 70px rgba(0,0,0,0.65),
+        0 0 38px rgba(255, 215, 106, 0.18);
+      backdrop-filter: blur(14px);
+      animation: enter 0.75s ease both;
+    }
+
+    @keyframes enter {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background:
+        linear-gradient(120deg, transparent 15%, rgba(255,215,106,0.15), transparent 45%),
+        radial-gradient(circle at 50% 0%, rgba(255,215,106,0.12), transparent 35%);
+      pointer-events: none;
+    }
+
+    .top {
+      position: relative;
+      z-index: 2;
       text-align: center;
     }
 
-    .brand-seal {
-      width: 78px;
-      height: 78px;
+    .logo-3d {
+      width: 128px;
+      height: 128px;
+      margin: 0 auto 16px;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #2b2205 0%, #090909 70%);
-      border: 2px solid rgba(255, 210, 95, 0.85);
-      box-shadow: 0 0 18px rgba(255, 191, 0, 0.22);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 34px;
-      flex-shrink: 0;
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 22%, rgba(255,255,255,0.24), transparent 22%),
+        linear-gradient(145deg, #2a1b00, #0a0a0a 55%, #000);
+      border: 2px solid rgba(255, 215, 106, 0.95);
+      box-shadow:
+        inset 0 0 20px rgba(255, 215, 106, 0.18),
+        0 0 30px rgba(255, 215, 106, 0.32),
+        0 18px 38px rgba(0,0,0,0.55);
+      transform-style: preserve-3d;
+      animation: logoPulse 3.5s ease-in-out infinite;
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+    @keyframes logoPulse {
+      0%, 100% {
+        transform: translateY(0) rotateX(0deg);
+      }
+      50% {
+        transform: translateY(-4px) rotateX(6deg);
+      }
+    }
+
+    .logo-3d::after {
+      content: "";
+      position: absolute;
+      width: 160%;
+      height: 32px;
+      background: rgba(255,255,255,0.18);
+      transform: rotate(-35deg);
+      animation: shine 3.2s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -170%; }
+      55% { left: 150%; }
+      100% { left: 150%; }
+    }
+
+    .logo-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      line-height: 0.92;
+      transform: translateZ(18px);
+    }
+
+    .logo-inner .crown {
+      display: block;
+      font-size: 30px;
+      margin-bottom: 2px;
+      filter: drop-shadow(0 0 10px rgba(255,215,106,0.45));
+    }
+
+    .logo-inner .rei {
+      display: block;
+      color: var(--gold);
+      font-size: 40px;
+      font-weight: 1000;
+      letter-spacing: -1px;
+      text-shadow:
+        0 2px 0 #6e4500,
+        0 0 16px rgba(255,215,106,0.55);
+    }
+
+    .logo-inner .promo {
+      display: block;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 215, 106, 0.09);
+      border: 1px solid rgba(255, 215, 106, 0.25);
+      color: #ffe8a3;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      color: var(--gold);
+      font-size: 36px;
+      line-height: 1.05;
+      margin-bottom: 12px;
+      text-shadow: 0 0 18px rgba(255, 215, 106, 0.26);
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.55;
+      max-width: 430px;
+      margin: 0 auto 18px;
+    }
+
+    .benefits {
+      position: relative;
+      z-index: 2;
+      margin: 0 0 20px;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255, 215, 106, 0.25);
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.02);
       text-align: left;
     }
 
-    .brand-text small {
-      color: #f0cf73;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      opacity: 0.95;
-    }
-
-    .brand-text strong {
-      color: #ffd86b;
-      font-size: 28px;
-      line-height: 1.05;
-      text-shadow: 0 0 12px rgba(255, 196, 0, 0.14);
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 20px;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-
-    .hero-left h1 {
-      font-size: 44px;
-      line-height: 1.05;
-      color: var(--gold-1);
-      margin-bottom: 12px;
-      text-shadow: 0 0 18px rgba(255, 208, 79, 0.15);
-    }
-
-    .hero-left p {
-      color: var(--muted);
-      font-size: 19px;
+    .benefits div {
+      color: #eeeeee;
+      font-size: 15.5px;
       line-height: 1.55;
-      margin-bottom: 16px;
-    }
-
-    .hero-list {
-      display: grid;
-      gap: 10px;
-      background: var(--card-2);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px;
-    }
-
-    .hero-list div {
-      font-size: 17px;
-      color: #f6f6f6;
-      line-height: 1.4;
-    }
-
-    .hero-side {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .cj-box {
-      width: 100%;
-      max-width: 320px;
-      background: linear-gradient(180deg, #111, #070707);
-      border: 1px solid rgba(255, 210, 95, 0.28);
-      border-radius: 24px;
-      padding: 12px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.45), 0 0 14px rgba(255,191,0,0.12);
-    }
-
-    .cj-box img {
-      width: 100%;
-      display: block;
-      border-radius: 18px;
-      object-fit: contain;
-      background: #0a0a0a;
-    }
-
-    .cj-caption {
-      margin-top: 10px;
-      text-align: center;
-      color: #ffd76a;
-      font-weight: 700;
-      font-size: 15px;
+      padding: 5px 0;
     }
 
     .section-title {
-      margin: 26px 0 14px;
+      position: relative;
+      z-index: 2;
       text-align: center;
-      font-size: 28px;
-      color: #ffd86b;
-      text-shadow: 0 0 12px rgba(255,196,0,0.12);
+      color: var(--gold);
+      font-size: 24px;
+      font-weight: 1000;
+      margin: 20px 0 14px;
     }
 
     .groups {
+      position: relative;
+      z-index: 2;
       display: grid;
-      gap: 16px;
-    }
-
-    .group-btn {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      width: 100%;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      border-radius: 22px;
-      padding: 20px 18px;
-      color: #fff;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.28);
-    }
-
-    .group-btn:active {
-      transform: scale(0.985);
-    }
-
-    .group-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .group-content {
-      display: flex;
-      align-items: center;
       gap: 14px;
     }
 
-    .group-icon {
-      width: 58px;
-      height: 58px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.13);
+    .group {
+      border: none;
+      width: 100%;
+      border-radius: 24px;
+      padding: 18px 15px;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        0 14px 26px rgba(0,0,0,0.34),
+        inset 0 0 0 1px rgba(255,255,255,0.18);
+      transition: transform 0.16s ease, filter 0.16s ease;
+    }
+
+    .group:active {
+      transform: scale(0.975);
+      filter: brightness(1.07);
+    }
+
+    .group::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.22), transparent 35%, rgba(255,255,255,0.08));
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .group-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .icon {
+      width: 56px;
+      height: 56px;
+      flex: 0 0 56px;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 28px;
-      flex-shrink: 0;
-      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: inset 0 0 15px rgba(255,255,255,0.08);
     }
 
-    .group-text strong {
+    .text strong {
       display: block;
-      font-size: 29px;
-      margin-bottom: 4px;
+      font-size: 22px;
+      font-weight: 1000;
+      line-height: 1.12;
+      margin-bottom: 5px;
     }
 
-    .group-text span {
+    .text span {
       display: block;
-      font-size: 16px;
-      opacity: 0.96;
+      font-size: 13.5px;
       line-height: 1.35;
+      opacity: 0.95;
     }
 
     .arrow {
+      position: relative;
+      z-index: 2;
       font-size: 34px;
-      font-weight: bold;
-      opacity: 0.95;
-      flex-shrink: 0;
+      font-weight: 1000;
     }
 
-    .group-1 {
-      background: linear-gradient(135deg, #ffdc7c 0%, #c98900 100%);
+    .var {
       color: #111;
+      background: linear-gradient(135deg, #fff0a8 0%, #f0b400 54%, #9b6900 100%);
     }
 
-    .group-1 .group-text span,
-    .group-1 .arrow {
-      color: #171717;
+    .var .text span,
+    .var .arrow {
+      color: #161616;
     }
 
-    .group-2 {
-      background: linear-gradient(135deg, #1fd0ff 0%, #0c44f7 100%);
-      color: #fff;
+    .gamer {
+      background: linear-gradient(135deg, #25e4ff 0%, #0062ff 58%, #001d7a 100%);
     }
 
-    .group-3 {
-      background: linear-gradient(135deg, #ffed9b 0%, #8c5800 100%);
-      color: #fff;
+    .perfume {
+      background: linear-gradient(135deg, #fff0b8 0%, #c08418 48%, #4c2b00 100%);
     }
 
-    .badges {
-      margin-top: 22px;
+    .trust {
+      position: relative;
+      z-index: 2;
+      margin-top: 18px;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
 
-    .badge {
-      background: #111;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 14px 12px;
+    .trust div {
+      padding: 12px 8px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.08);
       text-align: center;
-      color: #f0f0f0;
-      font-size: 17px;
+      color: #f2f2f2;
+      font-size: 13px;
+      font-weight: 700;
     }
 
     .warning {
-      margin-top: 18px;
-      color: #e9e9e9;
+      position: relative;
+      z-index: 2;
       text-align: center;
-      font-size: 15px;
+      color: #d3d3d3;
+      font-size: 13px;
       line-height: 1.5;
-      opacity: 0.96;
+      margin: 17px 4px 0;
     }
 
     .footer {
-      margin-top: 16px;
+      position: relative;
+      z-index: 2;
       text-align: center;
-      color: #a9a9a9;
-      font-size: 14px;
+      color: #888;
+      font-size: 12px;
+      margin-top: 15px;
     }
 
-    @media (max-width: 780px) {
-      .main-card {
-        padding: 20px 14px 18px;
-        border-radius: 24px;
+    .loading {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(8px);
+      padding: 24px;
+    }
+
+    .loading.active {
+      display: flex;
+    }
+
+    .loading-box {
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+      background: #0b0b0b;
+      border: 1px solid rgba(255,215,106,0.45);
+      border-radius: 24px;
+      padding: 24px 18px;
+      box-shadow: 0 0 35px rgba(255,215,106,0.22);
+    }
+
+    .spinner {
+      width: 46px;
+      height: 46px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      border: 4px solid rgba(255,215,106,0.18);
+      border-top-color: var(--gold);
+      animation: spin 0.85s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-box strong {
+      color: var(--gold);
+      font-size: 17px;
+    }
+
+    @media (max-width: 390px) {
+      body {
+        padding: 14px;
       }
 
-      .top-brand {
-        flex-direction: column;
-        gap: 10px;
+      .card {
+        border-radius: 28px;
+        padding: 22px 14px 18px;
       }
 
-      .brand-text {
-        align-items: center;
-        text-align: center;
+      h1 {
+        font-size: 31px;
       }
 
-      .brand-text strong {
-        font-size: 25px;
+      .subtitle {
+        font-size: 15.5px;
       }
 
-      .hero {
-        grid-template-columns: 1fr;
+      .text strong {
+        font-size: 19px;
       }
 
-      .hero-left h1 {
-        font-size: 34px;
-        text-align: center;
+      .text span {
+        font-size: 12.8px;
       }
 
-      .hero-left p {
-        font-size: 17px;
-        text-align: center;
-      }
-
-      .group-text strong {
-        font-size: 24px;
-      }
-
-      .group-text span {
-        font-size: 14px;
-      }
-
-      .group-icon {
+      .icon {
         width: 50px;
         height: 50px;
+        flex-basis: 50px;
         font-size: 24px;
-      }
-
-      .arrow {
-        font-size: 28px;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="main-card">
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+  <div class="glow three"></div>
 
-      <div class="top-brand">
-        <div class="brand-seal">👑</div>
-        <div class="brand-text">
-          <small>Links verificados • ofertas todos os dias</small>
-          <strong>Rei das Promoções</strong>
-        </div>
-      </div>
-
-      <div class="hero">
-        <div class="hero-left">
-          <h1>Escolha seu grupo e receba promoções reais no WhatsApp</h1>
-          <p>
-            Entre grátis no nicho que mais combina com você e receba achadinhos,
-            ofertas relâmpago e cupons todos os dias.
-          </p>
-
-          <div class="hero-list">
-            <div>✅ Links verificados diariamente</div>
-            <div>⚡ Ofertas relâmpago e cupons</div>
-            <div>💸 Achadinhos com preço baixo</div>
-            <div>📲 Entre grátis e ative as notificações</div>
+  <main class="page">
+    <section class="card">
+      <div class="top">
+        <div class="logo-3d">
+          <div class="logo-inner">
+            <span class="crown">👑</span>
+            <span class="rei">REI</span>
+            <span class="promo">DAS PROMOÇÕES</span>
           </div>
         </div>
 
-        <div class="hero-side">
-          <div class="cj-box">
-            <img src="site-cj.png" alt="CJ Rei das Promoções" onerror="this.style.display='none'; this.parentNode.querySelector('.cj-caption').innerText='Envie a imagem site-cj.png para aparecer aqui';" />
-            <div class="cj-caption">O rei das promoções te chama pro grupo certo 👑</div>
-          </div>
-        </div>
+        <div class="tagline">🔥 links verificados • ofertas todos os dias</div>
+
+        <h1>Rei das Promoções</h1>
+
+        <p class="subtitle">
+          Escolha seu grupo e receba ofertas selecionadas todos os dias direto no WhatsApp.
+        </p>
       </div>
 
-      <h2 class="section-title">Escolha onde você quer entrar:</h2>
+      <div class="benefits">
+        <div>✅ Links verificados diariamente</div>
+        <div>⚡ Ofertas relâmpago e cupons</div>
+        <div>💸 Achadinhos com preço baixo</div>
+        <div>📲 Entre grátis e ative as notificações</div>
+      </div>
+
+      <div class="section-title">Escolha onde você quer entrar:</div>
 
       <div class="groups">
-        <button class="group-btn group-1" onclick="entrarGrupo('Grupo 1 - Ofertas Variadas', 'https://chat.whatsapp.com/GS1RvRw6LPn1z8xdnEiKPX')">
+        <button class="group var" onclick="entrarGrupo('Grupo 1 - Ofertas Variadas', 'https://chat.whatsapp.com/GS1RvRw6LPn1z8xdnEiKPX')">
           <div class="group-content">
-            <div class="group-icon">🛒</div>
-            <div class="group-text">
+            <div class="icon">🛒</div>
+            <div class="text">
               <strong>Grupo 1 — Ofertas Variadas</strong>
               <span>Casa, cozinha, eletrônicos, utilidades e achadinhos</span>
             </div>
@@ -430,10 +597,10 @@
           <div class="arrow">›</div>
         </button>
 
-        <button class="group-btn group-2" onclick="entrarGrupo('Grupo 2 - Gamer PC e Setup', 'https://chat.whatsapp.com/FzFKTZ5d9Ja2hkkXqKKWlb')">
+        <button class="group gamer" onclick="entrarGrupo('Grupo 2 - Gamer PC e Setup', 'https://chat.whatsapp.com/FzFKTZ5d9Ja2hkkXqKKWlb')">
           <div class="group-content">
-            <div class="group-icon">🎮</div>
-            <div class="group-text">
+            <div class="icon">🎮</div>
+            <div class="text">
               <strong>Grupo 2 — Gamer, PC e Setup</strong>
               <span>SSD, gabinete, teclado, mouse, headset e peças</span>
             </div>
@@ -441,10 +608,10 @@
           <div class="arrow">›</div>
         </button>
 
-        <button class="group-btn group-3" onclick="entrarGrupo('Grupo 3 - Perfumes e Kits', 'https://chat.whatsapp.com/JmFhQpzEMnX6xierb4SpRr')">
+        <button class="group perfume" onclick="entrarGrupo('Grupo 3 - Perfumes e Kits', 'https://chat.whatsapp.com/JmFhQpzEMnX6xierb4SpRr')">
           <div class="group-content">
-            <div class="group-icon">✨</div>
-            <div class="group-text">
+            <div class="icon">✨</div>
+            <div class="text">
               <strong>Grupo 3 — Perfumes e Kits</strong>
               <span>Perfumes masculinos, femininos, unissex e promoções</span>
             </div>
@@ -453,42 +620,48 @@
         </button>
       </div>
 
-      <div class="badges">
-        <div class="badge">🔒 Grupos grátis</div>
-        <div class="badge">🔥 Promoções reais</div>
-        <div class="badge">✅ Links conferidos</div>
-        <div class="badge">⚡ Ofertas rápidas</div>
+      <div class="trust">
+        <div>🔒 Grupos grátis</div>
+        <div>🔥 Promoções reais</div>
+        <div>✅ Links conferidos</div>
+        <div>⚡ Ofertas rápidas</div>
       </div>
 
-      <div class="warning">
-        ⚠️ Os preços podem mudar ou acabar a qualquer momento. Ative as notificações
-        para não perder as próximas ofertas.
-      </div>
+      <p class="warning">
+        ⚠️ Os preços podem mudar ou acabar a qualquer momento. Ative as notificações para não perder as próximas ofertas.
+      </p>
 
-      <div class="footer">
-        Rei das Promoções © 2026
-      </div>
+      <div class="footer">Rei das Promoções © 2026</div>
+    </section>
+  </main>
+
+  <div id="loading" class="loading">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <strong>Redirecionando para o grupo...</strong>
     </div>
   </div>
 
   <script>
     function entrarGrupo(nome, url) {
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead', {
+      document.getElementById("loading").classList.add("active");
+
+      if (typeof fbq !== "undefined") {
+        fbq("track", "Lead", {
           content_name: nome,
-          content_category: 'Grupo WhatsApp',
-          source: 'Site Ponte GitHub'
+          content_category: "Grupo WhatsApp",
+          source: "Site Ponte GitHub"
         });
 
-        fbq('trackCustom', 'ClickWhatsApp', {
+        fbq("trackCustom", "CliqueGrupoWhatsApp", {
           grupo: nome
         });
       }
 
       setTimeout(function () {
         window.location.href = url;
-      }, 220);
+      }, 550);
     }
   </script>
 </body>
-</html>
+  </html>
